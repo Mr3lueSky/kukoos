@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+    <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+
+
+<!-- {% extends 'index.html' %} -->
+<body>
+    <div class="container">
+        <div class="reg-heading">
+        <h1>Transactions</h1>
+        </div>
+        <table id="transaction-table">
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Amount</th>
+              
+            </tr>
+            {%for transaction in transactions%}
+            
+            <td>{{transaction.Date}}</td>
+            <td>{{transaction.Description}}</td>
+            <td>{{transaction.Category}}</td>
+            <td>{{ transaction.Amount }}</td>
+              
+           {%endfor%}
+            
+          </table>
+          
+    </div>
+    
+</body>
+</html>

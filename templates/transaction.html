@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <form action="/addtransactions" method="post" id="transaction-registration-form">
+        <form action="/register" method="post" id="event-registration-form">
+            <label for="date">Date</label>
+            <input type="text" id="date" name="date" required>
+          
+            <label for="description">Descrption </label>
+            <input type="text" id="description" name="description" required>
+          
+            <label for="category">Category</label>
+            <input type="text" id="category" name="category" >
+          
+            <label for="Amount">Amount</label>
+            <input type="float" id="amount" name="amount" >
+
+            <input type="submit" value="Submit">
+          </form>
+    </form>
+</body>
+</html>
