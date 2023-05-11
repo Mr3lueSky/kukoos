@@ -16,7 +16,11 @@ class Transaction(db.Model):
     description = db.Column(db.String(100), nullable=False)
     category=db.Column(db.String(200),nullable=False)
     amount = db.Column(db.Float, nullable=False)
-    # balance = db.Column(db.Float,nullable=False)
+    
+class Balance(db.Model):
+    __tablename__="Balance"
+    id = db.Column(db.Integer, primary_key=True)
+    balance = db.Column(db.Integer, nullable=False)
 
 with app.app_context():
     db.create_all()   #creating the table
@@ -42,16 +46,30 @@ def register():
       description=request.form["description"]
       category=request.form["category"]
       amount=request.form["amount"]
-    
+      
       print(request.form)
-    #   balance=5000-amount
+      #amount = int(request.form["amount"])
+      #balance=5000-amount
 
       transaction=Transaction(date=date,description=description,category=category,amount=amount)
+      
       db.session.add(transaction)
+      
       db.session.commit()
-    #   balance=5000
+
+      
       return render_template("index.html")
     return render_template("transaction.html")
+
+@app.route('/')
+def balance():
+    amount = int(request.form(["amount"]))
+    balance=5000-amount
+    balance=Balance(balance=balance)   
+    db.session.add(balance)
+    db.session.commit()
+           
+
 
 
 if __name__ == '__main__':
